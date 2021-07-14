@@ -4,37 +4,42 @@
 <meta charset="UTF-8">
   <title>Project 2</title>
 
-<!-- <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Press+Start+2P&display=swap" rel="stylesheet"> -->
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;1,300&family=Press+Start+2P&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
 
 <header>
-    <div class="container">
+    <div class="wrapper">
+    <div class="header-container">
         <h1 id="page-title">Movie's Night</h1>
-        <p>Let's Watch Movie Together</p>
+        <h2>Let's Watch Movie Together</h2>
     </div>
+
     <div class="container">
-    <h2>What Do You Feel Like Today ? </h2>
     <form action="">
+        <h3>What Do You Feel Like Today ? </h3>
         <label for="genres"></label>
         <select name="genre" id="genres">
         </select>
         <br><br>
         <input type="submit" value="Submit">
     </form>
-    <button id="randombutton">Random Button</button>
     </div>
+</div>
 </header>
 
 <main>
-    <ul class="wrapper" id="top"></ul>
+<div class="wrapper">
+    <ul id="top"></ul>
 
-    <ul class="wrapper" id="movies"></ul>
+    <ul id="movies"></ul>
+</div>
 </main>
+
+<footer> Created at Juno College </footer>
 
 <script src="app.js"></script>
 </body>
