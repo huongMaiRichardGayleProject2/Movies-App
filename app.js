@@ -1,21 +1,10 @@
-/*
-    * - We need the url/key/fetch call
-    * - create app function, and fetch :white_check_mark:
-    * - listen for a button click
-    * - DECLARE AN APP OBJ :white_check_mark:
-    * - we need a form or some type of user input?
-    * - We need to capture user input from our form
-    * - RANDOM MOVIE BUTTON
-    * - depending on the user input 
-    * - then random go through that object and put on html
-*/
-​
-​
+console.log('hi')
+
 // First creating our namspace for the application
 const movieApp= {}
 // holding our content in memory
 movieApp.baseUrl = "https://api.themoviedb.org/3"
-movieApp.apiKey = "695ac71fce5922ab995f1f6b063ba94f"
+movieApp.apiKey = "94a5bbbf88596911e11e00d1e58a4443"
 ​
 // hold all of our generes in memory
 movieApp.genres = [];
