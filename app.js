@@ -166,7 +166,7 @@ movieApp.displayMovie = (movies) => {
         newListPhoto.setAttribute("alt", `This is a poster for the movie: ${movie.title}`)
         // Create new paragraph elements and add in the content
         // Create Movie Title
-        const newListTitle = document.createElement("p")
+        const newListTitle = document.createElement("h4")
         newListTitle.textContent = movie.title
         // Create Movie Overview
         const newListOverview = document.createElement("p")
