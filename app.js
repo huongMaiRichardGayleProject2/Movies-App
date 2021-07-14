@@ -4,7 +4,7 @@ console.log('hi')
 const movieApp= {}
 // holding our content in memory
 movieApp.baseUrl = "https://api.themoviedb.org/3"
-movieApp.apiKey = "94a5bbbf88596911e11e00d1e58a4443"
+movieApp.apiKey = "3a9834e5864465ce89d45c11b1133873"
 ​
 // hold all of our generes in memory
 movieApp.genres = [];
