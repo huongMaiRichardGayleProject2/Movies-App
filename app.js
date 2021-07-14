@@ -9,17 +9,17 @@
     * - depending on the user input 
     * - then random go through that object and put on html
 */
-​
-​
+
+
 // First creating our namspace for the application
 const movieApp= {}
 // holding our content in memory
 movieApp.baseUrl = "https://api.themoviedb.org/3"
 movieApp.apiKey = "695ac71fce5922ab995f1f6b063ba94f"
-​
+
 // hold all of our generes in memory
 movieApp.genres = [];
-​
+
 //fetch function
 movieApp.fetchMovieGenre = () => {
     const url = new URL(`${movieApp.baseUrl}/genre/movie/list`);
@@ -36,13 +36,13 @@ movieApp.fetchMovieGenre = () => {
             movieApp.displayGenres(movieApp.genres);
         })
 }
-​
+
 // Displaying the new genres to the dropdown menu and append it to HTML form
-​
+
 movieApp.displayGenres = (listOfGenres) => {
     // getting the select element from the screen
     const selectEl = document.getElementById("genres");
-​
+
     // loop through the list of gernes and append to the select element
     listOfGenres.forEach((genre) => {
         // create a variable for option 
@@ -54,10 +54,10 @@ movieApp.displayGenres = (listOfGenres) => {
         selectEl.append(newOptionEl);
     })
 }
-​
+
 // add an event listener to the form
 // so that we can get the users information
-​
+
 movieApp.getUserInformation = () => {
     const formEl = document.querySelector("form")
     formEl.addEventListener("submit", (event) => {
@@ -66,9 +66,9 @@ movieApp.getUserInformation = () => {
         movieApp.fetchMovie(userSelection)
     })
 }
-​
+
 // create function to grab all movies within a genre
-​
+
 movieApp.fetchMovie = (genre) => {
     const url = new URL(`${movieApp.baseUrl}/discover/movie`)
     url.search = new URLSearchParams({
@@ -116,18 +116,51 @@ movieApp.displayMovie = (movies) => {
         moviesList.append(newListItem)
     })
 }
-​
+
 // random movie button
 movieApp.randomMovie = () => {
-​
+        // Will finish off later!
+        // get the SAFI button and give it an event listener
+        movieApp.button = document.getElementById("randombutton")
+        movieApp.button.addEventListener("click", (event) => {
+            event.preventDefault()
+            // get random number from the genre's list
+            const randomGenreInteger = Math.floor(Math.random() * movieApp.genres.length)
+            // getting a random genre within the yikesMovieApp.genre list
+            const randomGenre = movieApp.genres[randomGenreInteger]
+            //Doing the request to get a random movie
+            const url = new URL(`${movieApp.baseUrl}/discover/movie`)
+            // Supplying the url search with the updated values
+            url.search = new URLSearchParams({
+                api_key: movieApp.apiKey,
+                with_genres: randomGenre.id
+            })
+            fetch(url)
+                .then((res) => {
+                    return res.json()
+                })
+                .then((data) => {
+                    // getting a random movie from the returned data.results array
+                    const randomMovieInteger = Math.floor(Math.random() * data.results.length)
+                    const randomMovie = data.results[randomMovieInteger]
+                    // Using an alert message to show the random movie
+                    // Un comment the console.log() below if you want to see the whole movie object in the console!
+                    // console.log(randomMovie)
+                    const movieMessage = `Hello! It's me the Safi button. I recommend that you watch the movie: ${randomMovie.title}!`
+                    alert(`${movieMessage.toUpperCase()}`)
+                    // Stretch goal to display new html to the page with more of the movie data
+                })
+        })
+    
 }
-​
+
 // init 
 movieApp.general = () => {
     movieApp.fetchMovieGenre();
     movieApp.getUserInformation();
+    movieApp.randomMovie();
 };
-​
-​
+
+
 // Init function
 movieApp.general();
