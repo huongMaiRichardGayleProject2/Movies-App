@@ -257,6 +257,26 @@ h2 {
   text-align: center;
 }
 
+h3 {
+  font-size: 70px;
+  text-align: center;
+  text-transform: uppercase;
+  padding-top: 55px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+p {
+  font-size: 20px;
+  text-align: center;
+}
+
+li {
+  font-weight: 700;
+}
+
 html {
   font-family: "Barlow", sans-serif;
   background-color: #E1ECF7;
@@ -271,6 +291,10 @@ form {
 
 main {
   background-color: white;
+}
+
+ul {
+  list-style: none;
 }
 
 footer {

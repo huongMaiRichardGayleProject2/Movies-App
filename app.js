@@ -133,7 +133,7 @@ movieApp.topMovies = (movieArr) => {
             imgEl.setAttribute("src", topMovieImage)
             imgEl.setAttribute("alt", `This is a poster for the movie: ${topAvg[i].title}`)
 
-            const topMovieTitle = document.createElement("p")
+            const topMovieTitle = document.createElement("h4")
             topMovieTitle.textContent = topAvg[i].title
 
             liEl.appendChild(imgEl)

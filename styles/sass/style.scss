@@ -21,6 +21,31 @@ h2 {
     color: $PurePurple;
     text-align: center;
 }
+
+h3 {
+    font-size: 70px;
+    text-align: center;
+    text-transform: uppercase;
+    padding-top: 55px;
+}
+
+h4 {
+    font-size: 20px;
+}
+
+p {
+    font-size: 20px;
+    text-align: center;
+}
+
+// .top-rated p:first-child, .other-movies p:first-child {
+//     font-weight: 700;
+// }
+
+li {
+    font-weight: 700;
+}
+
 html {
     font-family: $bodyFont;
     background-color: $Cloud;
@@ -35,6 +60,10 @@ form {
 }
 main {
   background-color: white;
+}
+
+ul {
+    list-style: none;
 }
 
 footer {
