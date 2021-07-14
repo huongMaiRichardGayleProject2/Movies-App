@@ -236,5 +236,9 @@ html {
 }
 
 h1 {
+  font-family: "Inconsolata", monospace;
+}
+
+h2 {
   color: red;
 }
