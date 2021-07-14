@@ -9,17 +9,17 @@
     * - depending on the user input 
     * - then random go through that object and put on html
 */
-​
-​
+
+
 // First creating our namspace for the application
 const movieApp= {}
 // holding our content in memory
 movieApp.baseUrl = "https://api.themoviedb.org/3"
 movieApp.apiKey = "695ac71fce5922ab995f1f6b063ba94f"
-​
+
 // hold all of our generes in memory
 movieApp.genres = [];
-​
+
 //fetch function
 movieApp.fetchMovieGenre = () => {
     const url = new URL(`${movieApp.baseUrl}/genre/movie/list`);
@@ -36,13 +36,13 @@ movieApp.fetchMovieGenre = () => {
             movieApp.displayGenres(movieApp.genres);
         })
 }
-​
+
 // Displaying the new genres to the dropdown menu and append it to HTML form
-​
+
 movieApp.displayGenres = (listOfGenres) => {
     // getting the select element from the screen
     const selectEl = document.getElementById("genres");
-​
+
     // loop through the list of gernes and append to the select element
     listOfGenres.forEach((genre) => {
         // create a variable for option 
@@ -54,21 +54,22 @@ movieApp.displayGenres = (listOfGenres) => {
         selectEl.append(newOptionEl);
     })
 }
-​
+
 // add an event listener to the form
 // so that we can get the users information
-​
+
 movieApp.getUserInformation = () => {
     const formEl = document.querySelector("form")
     formEl.addEventListener("submit", (event) => {
         event.preventDefault();
         const userSelection = event.target[0].value;
         movieApp.fetchMovie(userSelection)
+        // movieApp.topMovies(userSelection)
     })
 }
-​
+
 // create function to grab all movies within a genre
-​
+
 movieApp.fetchMovie = (genre) => {
     const url = new URL(`${movieApp.baseUrl}/discover/movie`)
     url.search = new URLSearchParams({
@@ -81,13 +82,79 @@ movieApp.fetchMovie = (genre) => {
     })
     .then((data) => {
         movieApp.userSelectedMovies = data.results;
+        movieApp.topMovies(movieApp.userSelectedMovies);
         movieApp.displayMovie(movieApp.userSelectedMovies);
     })
 }
+
+// TOP RATED 
+// create a section of three movies that will appear above the movie list that are the top rated of that genre
+
+// access genre array and target voter average. sort from high to low for top 3 with search param of vote_average which is number
+
+// if number a is larger than b keep if not put in num b
+// run math .max on array 
+// then have it check array again and run max second and third time
+
+// need to find way to skip > 8 step and loop through and push top three voter avg in array
+// need to target voteravg directly and put whole object in new array
+       
+movieApp.topMovies = (movieArr) => {
+
+        console.log(movieApp.userSelectedMovies)
+        // array to hold cloned movie list
+        topAvg = [];
+        
+        // cloning movie list to new array
+        movieArr.filter((mov) => {
+            topAvg.push(mov)
+        })
+        
+        // Sorting new array by highest to lowest voter average
+        topAvg.sort(function(a, b) {
+            // console.log(mov.vote_average)
+            return b.vote_average-a.vote_average
+        })
+        
+        // this is the list rating best to worst
+        console.log(topAvg)
+
+        const topRated = document.getElementById("top")
+        topRated.innerHTML = ""
+
+        // Loop that grabs the first three movies of sorted array and displays them
+        for(let i = 0; i < topAvg.length; i++) {
+            console.log(topAvg[i].title)
+            const liEl = document.createElement("li")
+            
+            const imgEl = document.createElement("img")
+
+            const topMovieImage = `https://www.themoviedb.org/t/p/w220_and_h330_face/${topAvg[i].poster_path}`
+            imgEl.setAttribute("src", topMovieImage)
+            imgEl.setAttribute("alt", `This is a poster for the movie: ${topAvg[i].title}`)
+
+            const topMovieTitle = document.createElement("p")
+            topMovieTitle.textContent = topAvg[i].title
+
+            liEl.appendChild(imgEl)
+            liEl.appendChild(topMovieTitle)
+
+            topRated.append(liEl)
+
+            if (i === 2) {
+                break;
+            }
+        }
+}
+    
+
+
 // render to the content to the page
 movieApp.displayMovie = (movies) => {
     const moviesList = document.getElementById("movies") 
     moviesList.innerHTML = ""
+    // const topRated = document.getElementById("top")
+    // topRated.innerHTML = ""
     movies.forEach((movie) => {
         // Create a new list item
         const newListItem= document.createElement("li")
@@ -116,18 +183,18 @@ movieApp.displayMovie = (movies) => {
         moviesList.append(newListItem)
     })
 }
-​
+
 // random movie button
 movieApp.randomMovie = () => {
-​
+
 }
-​
+
 // init 
 movieApp.general = () => {
     movieApp.fetchMovieGenre();
     movieApp.getUserInformation();
 };
-​
-​
+
+
 // Init function
 movieApp.general();
