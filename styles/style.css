@@ -235,6 +235,44 @@ html {
   overflow: hidden;
 }
 
+.header-container {
+  margin: 70px 0;
+}
+
+.wrapper {
+  max-width: 1200px;
+  width: 95%;
+  margin: 0 auto;
+}
+
 h1 {
-  color: red;
+  font-family: "Press Start 2P", cursive;
+  color: #DE354C;
+  text-align: center;
+}
+
+h2 {
+  font-family: "Press Start 2P", cursive;
+  color: #3C1874;
+  text-align: center;
+}
+
+html {
+  font-family: "Barlow", sans-serif;
+  background-color: #E1ECF7;
+}
+
+form {
+  border: 3px solid black;
+  border-radius: 15px;
+  text-align: center;
+  padding: 30px 0;
+}
+
+main {
+  background-color: white;
+}
+
+footer {
+  text-align: center;
 }
