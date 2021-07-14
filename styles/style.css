@@ -246,13 +246,6 @@ html {
 }
 
 h1 {
-<<<<<<< HEAD
-  font-family: "Inconsolata", monospace;
-}
-
-h2 {
-  color: red;
-=======
   font-family: "Press Start 2P", cursive;
   color: #DE354C;
   text-align: center;
@@ -262,6 +255,26 @@ h2 {
   font-family: "Press Start 2P", cursive;
   color: #3C1874;
   text-align: center;
+}
+
+h3 {
+  font-size: 70px;
+  text-align: center;
+  text-transform: uppercase;
+  padding-top: 55px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+p {
+  font-size: 20px;
+  text-align: center;
+}
+
+li {
+  font-weight: 700;
 }
 
 html {
@@ -280,7 +293,10 @@ main {
   background-color: white;
 }
 
+ul {
+  list-style: none;
+}
+
 footer {
   text-align: center;
->>>>>>> 336b5d7eddd270c2b9377ee50e627ebac4ce1bdc
 }
