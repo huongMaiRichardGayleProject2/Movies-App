@@ -317,24 +317,3 @@ ul {
 footer {
   text-align: center;
 }
-
-select {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  border: 3px solid #3C1874;
-  border-radius: 5px;
-  width: 45%;
-  height: 30px;
-  background-image: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png);
-  background-repeat: no-repeat;
-  background-position: 95% center;
-  text-align: center;
-}
-
-input {
-  background-color: white;
-  border: 3px solid #3C1874;
-  border-radius: 5px;
-  padding: 10px 20px;
-}
