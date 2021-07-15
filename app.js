@@ -128,13 +128,19 @@ movieApp.topMovies = (movieArr) => {
 
         div.appendChild(hThree)
         div.appendChild(ul)
+        mainSection.innerHTML = ""
         mainSection.prepend(div)
+        console.log(div)
+        // div.append(mainSection)
         // ===============================
 
         console.log(mainSection)
+        console.log(hThree)
 
+        // div.innerHTML = ""
         const topRated = document.getElementById("top")
         // topRated.innerHTML = ""
+        // hThree.innerHTML = ""
 
         // Loop that grabs the first three movies of sorted array and displays them
         for(let i = 0; i < topAvg.length; i++) {
@@ -152,9 +158,6 @@ movieApp.topMovies = (movieArr) => {
             const topMovieTitle = document.createElement("h4")
             topMovieTitle.textContent = topAvg[i].title
 
-            // const topMovieOverview = document.createElement("p")
-            // topMovieOverview.textContent = topAvg[i].overview
-
             liEl.appendChild(imgEl)
             liEl.appendChild(topMovieTitle)
             // liEl.appendChild(topMovieOverview)
@@ -165,14 +168,17 @@ movieApp.topMovies = (movieArr) => {
                 break;
             }
         }
+        
 }
+
+
     
 
 
 // render the content to the page
 movieApp.displayMovie = (movies) => {
     
-    
+    // appending movie genre array onto page
     // ===========================
     const mainSection = document.getElementById('main-section')
     // mainSection.innerHTML = ''
@@ -190,7 +196,10 @@ movieApp.displayMovie = (movies) => {
     // ===============================
     
     
+    
     const moviesList = document.getElementById("movies") 
+    moviesList.innerHTML = ""
+    // hThree.innerHTML = ""
 
 
 
@@ -221,6 +230,8 @@ movieApp.displayMovie = (movies) => {
         // Add content to the screen!
         moviesList.append(newListItem)
     })
+
+    
 
 }
 
