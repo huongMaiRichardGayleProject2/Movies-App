@@ -297,6 +297,23 @@ ul {
   list-style: none;
 }
 
+.top-rated-ul {
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.top-rated-ul li {
+  width: calc((100%/3) - 60px);
+  margin: 0px 30px;
+  min-width: 190px;
+  text-align: center;
+}
+
 footer {
   text-align: center;
 }

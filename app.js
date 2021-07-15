@@ -64,7 +64,7 @@ movieApp.getUserInformation = () => {
         event.preventDefault();
         const userSelection = event.target[0].value;
         movieApp.fetchMovie(userSelection)
-        // movieApp.topMovies(userSelection)
+        
     })
 }
 
@@ -100,8 +100,6 @@ movieApp.fetchMovie = (genre) => {
 // need to target voteravg directly and put whole object in new array
 
 movieApp.topMovies = (movieArr) => {
-
-        console.log(movieApp.userSelectedMovies)
         // array to hold cloned movie list
         topAvg = [];
         
@@ -118,13 +116,31 @@ movieApp.topMovies = (movieArr) => {
         
         // this is the list rating best to worst
         console.log(topAvg)
+        // ===========================
+        const mainSection = document.getElementById('main-section')
+        const div = document.createElement('div')
+        div.classList.add('top-rated')
+        const hThree = document.createElement('h3')
+        hThree.textContent = 'top rated'
+        const ul = document.createElement('ul')
+        ul.setAttribute('id', 'top')
+        ul.classList.add('top-rated-ul')
+
+        div.appendChild(hThree)
+        div.appendChild(ul)
+        mainSection.prepend(div)
+        // ===============================
+
+        console.log(mainSection)
 
         const topRated = document.getElementById("top")
-        topRated.innerHTML = ""
+        // topRated.innerHTML = ""
 
         // Loop that grabs the first three movies of sorted array and displays them
         for(let i = 0; i < topAvg.length; i++) {
             console.log(topAvg[i].title)
+            // ++++++++++++++++++++++++
+
             const liEl = document.createElement("li")
             
             const imgEl = document.createElement("img")
@@ -136,8 +152,12 @@ movieApp.topMovies = (movieArr) => {
             const topMovieTitle = document.createElement("h4")
             topMovieTitle.textContent = topAvg[i].title
 
+            // const topMovieOverview = document.createElement("p")
+            // topMovieOverview.textContent = topAvg[i].overview
+
             liEl.appendChild(imgEl)
             liEl.appendChild(topMovieTitle)
+            // liEl.appendChild(topMovieOverview)
 
             topRated.append(liEl)
 
@@ -149,12 +169,31 @@ movieApp.topMovies = (movieArr) => {
     
 
 
-// render to the content to the page
+// render the content to the page
 movieApp.displayMovie = (movies) => {
+    
+    
+    // ===========================
+    const mainSection = document.getElementById('main-section')
+    // mainSection.innerHTML = ''
+    const div = document.createElement('div')
+    div.classList.add('other-movies')
+    const hThree = document.createElement('h3')
+    hThree.textContent = 'movies'
+    const ul = document.createElement('ul')
+    ul.setAttribute('id', 'movies')
+    
+
+    div.appendChild(hThree)
+    div.appendChild(ul)
+    mainSection.appendChild(div)
+    // ===============================
+    
+    
     const moviesList = document.getElementById("movies") 
-    moviesList.innerHTML = ""
-    // const topRated = document.getElementById("top")
-    // topRated.innerHTML = ""
+
+
+
     movies.forEach((movie) => {
         // Create a new list item
         const newListItem= document.createElement("li")
@@ -182,6 +221,7 @@ movieApp.displayMovie = (movies) => {
         // Add content to the screen!
         moviesList.append(newListItem)
     })
+
 }
 
 // random movie button
