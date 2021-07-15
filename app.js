@@ -98,7 +98,6 @@ movieApp.fetchMovie = (genre) => {
 
 // need to find way to skip > 8 step and loop through and push top three voter avg in array
 // need to target voteravg directly and put whole object in new array
-
 movieApp.topMovies = (movieArr) => {
         // array to hold cloned movie list
         topAvg = [];
@@ -193,17 +192,7 @@ movieApp.displayMovie = (movieArr) => {
         // console.log(mov.vote_average)
         return b.vote_average-a.vote_average
     })
-    
-    const topMovies = document.getElementById("movies")
-    topMovies.innerHTML = ""
-
-    // Loop that grabs the first three movies of sorted array and displays them
-    for(let i = 3; i < topAvg.length; i++) {
-
-
-// render the content to the page
-movieApp.displayMovie = (movies) => {
-    
+        
     // appending movie genre array onto page
     // ===========================
     const mainSection = document.getElementById('main-section')
@@ -215,7 +204,6 @@ movieApp.displayMovie = (movies) => {
     const ul = document.createElement('ul')
     ul.setAttribute('id', 'movies')
     
-
     div.appendChild(hThree)
     div.appendChild(ul)
     mainSection.appendChild(div)
@@ -226,7 +214,8 @@ movieApp.displayMovie = (movies) => {
     const moviesList = document.getElementById("movies") 
     moviesList.innerHTML = ""
     // hThree.innerHTML = ""
-       const liEl = document.createElement("li")
+    for(let i = 3; i < topAvg.length; i++) {
+        const liEl = document.createElement("li")
         
         const imgEl = document.createElement("img")
 
@@ -244,7 +233,7 @@ movieApp.displayMovie = (movies) => {
         liEl.appendChild(topMovieTitle)
         liEl.appendChild(topMovieVote);
 
-        topMovies.append(liEl)
+        moviesList.append(liEl)
 
         if (i === topAvg.length) {
             break;
@@ -253,10 +242,6 @@ movieApp.displayMovie = (movies) => {
 
 }
 
-// random movie button
-movieApp.randomMovie = () => {
-
-}
 
 // init 
 movieApp.general = () => {
