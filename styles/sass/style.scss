@@ -1,9 +1,9 @@
 @import 'setup';
 @import 'variables';
 
-.header-container {
-    margin: 70px 0;
-}
+
+// General
+
 .wrapper {
         max-width: 1200px;
         width: 95%; 
@@ -47,6 +47,10 @@ p {
     text-align: center;
 }
 
+img {
+    max-width: 100%;
+}
+
 li {
     font-weight: 700;
 }
@@ -55,6 +59,10 @@ html {
     font-family: $bodyFont;
     background-color: $Cloud;
 }
+
+img {
+    max-width: 100%;
+
 
 form {
     border: 3px solid black;
@@ -85,6 +93,22 @@ ul {
     min-width: 190px;
     text-align: center;
 }
+// Other Movies Section
+
+.other-movies ul{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.other-movies li {
+    padding: 0 20px;
+    text-align: center;
+}
+// Header Section
+.header-container {
+    margin: 70px 0;
+}
+// Footer Section
 
 footer {
     text-align: center;
