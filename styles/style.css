@@ -235,10 +235,6 @@ html {
   overflow: hidden;
 }
 
-.header-container {
-  margin: 70px 0;
-}
-
 .wrapper {
   max-width: 1200px;
   width: 95%;
@@ -273,6 +269,10 @@ p {
   text-align: center;
 }
 
+img {
+  max-width: 100%;
+}
+
 li {
   font-weight: 700;
 }
@@ -280,6 +280,10 @@ li {
 html {
   font-family: "Barlow", sans-serif;
   background-color: #E1ECF7;
+}
+
+img {
+  max-width: 100%;
 }
 
 form {
@@ -312,6 +316,26 @@ ul {
   margin: 0px 30px;
   min-width: 190px;
   text-align: center;
+}
+
+.other-movies ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.other-movies li {
+  padding: 0 20px;
+  text-align: center;
+}
+
+.header-container {
+  margin: 70px 0;
 }
 
 footer {

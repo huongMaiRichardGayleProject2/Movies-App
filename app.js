@@ -98,7 +98,6 @@ movieApp.fetchMovie = (genre) => {
 
 // need to find way to skip > 8 step and loop through and push top three voter avg in array
 // need to target voteravg directly and put whole object in new array
-
 movieApp.topMovies = (movieArr) => {
         // array to hold cloned movie list
         topAvg = [];
@@ -113,6 +112,7 @@ movieApp.topMovies = (movieArr) => {
             // console.log(mov.vote_average)
             return b.vote_average-a.vote_average
         })
+
         
         // this is the list rating best to worst
         console.log(topAvg)
@@ -130,7 +130,7 @@ movieApp.topMovies = (movieArr) => {
         div.appendChild(ul)
         mainSection.innerHTML = ""
         mainSection.prepend(div)
-        console.log(div)
+
         // div.append(mainSection)
         // ===============================
 
@@ -138,17 +138,17 @@ movieApp.topMovies = (movieArr) => {
         console.log(hThree)
 
         // div.innerHTML = ""
+
+
+
         const topRated = document.getElementById("top")
         // topRated.innerHTML = ""
         // hThree.innerHTML = ""
 
         // Loop that grabs the first three movies of sorted array and displays them
         for(let i = 0; i < topAvg.length; i++) {
-            console.log(topAvg[i].title)
-            // ++++++++++++++++++++++++
 
             const liEl = document.createElement("li")
-            
             const imgEl = document.createElement("img")
 
             const topMovieImage = `https://www.themoviedb.org/t/p/w220_and_h330_face/${topAvg[i].poster_path}`
@@ -160,7 +160,6 @@ movieApp.topMovies = (movieArr) => {
 
             liEl.appendChild(imgEl)
             liEl.appendChild(topMovieTitle)
-            // liEl.appendChild(topMovieOverview)
 
             topRated.append(liEl)
 
@@ -173,11 +172,27 @@ movieApp.topMovies = (movieArr) => {
 
 
     
+// DISPLAY MOVIES
+// Using the same logic of Top Rated Section
+// After sorting movies basing on voter average, sort from high to low for all the movies in the user input genre
+// Loop the the new sorted array and only print out array number 3 to the end of the length of the array
+// Display it to the HTML
+movieApp.displayMovie = (movieArr) => {
 
-
-// render the content to the page
-movieApp.displayMovie = (movies) => {
+    // array to hold cloned movie list
+    topAvg = [];
     
+    // cloning movie list to new array
+    movieArr.filter((mov) => {
+        topAvg.push(mov)
+    })
+    
+    // Sorting new array by highest to lowest voter average
+    topAvg.sort(function(a, b) {
+        // console.log(mov.vote_average)
+        return b.vote_average-a.vote_average
+    })
+        
     // appending movie genre array onto page
     // ===========================
     const mainSection = document.getElementById('main-section')
@@ -189,7 +204,6 @@ movieApp.displayMovie = (movies) => {
     const ul = document.createElement('ul')
     ul.setAttribute('id', 'movies')
     
-
     div.appendChild(hThree)
     div.appendChild(ul)
     mainSection.appendChild(div)
@@ -200,45 +214,34 @@ movieApp.displayMovie = (movies) => {
     const moviesList = document.getElementById("movies") 
     moviesList.innerHTML = ""
     // hThree.innerHTML = ""
+    for(let i = 3; i < topAvg.length; i++) {
+        const liEl = document.createElement("li")
+        
+        const imgEl = document.createElement("img")
 
+        const topMovieImage = `https://www.themoviedb.org/t/p/w220_and_h330_face/${topAvg[i].poster_path}`
+        imgEl.setAttribute("src", topMovieImage)
+        imgEl.setAttribute("alt", `This is a poster for the movie: ${topAvg[i].title}`)
 
+        const topMovieTitle = document.createElement("h4")
+        topMovieTitle.textContent = topAvg[i].title
 
-    movies.forEach((movie) => {
-        // Create a new list item
-        const newListItem= document.createElement("li")
-        // Create a new image
-        const newListPhoto = document.createElement("img")
-        // Append Image information to the image
-        const movieImage = `https://www.themoviedb.org/t/p/w220_and_h330_face/${movie.poster_path}`
-        newListPhoto.setAttribute("src", movieImage)
-        newListPhoto.setAttribute("alt", `This is a poster for the movie: ${movie.title}`)
-        // Create new paragraph elements and add in the content
-        // Create Movie Title
-        const newListTitle = document.createElement("p")
-        newListTitle.textContent = movie.title
-        // Create Movie Overview
-        const newListOverview = document.createElement("p")
-        newListOverview.textContent = movie.overview
-        // Create Metric 
-        const newListMetric = document.createElement("p")
-        newListMetric.textContent = `Average rating of: ${movie.vote_average}; from ${movie.vote_count} users`
-        //Append these movies into newListItem
-        newListItem.appendChild(newListPhoto)
-        newListItem.appendChild(newListTitle)
-        newListItem.appendChild(newListOverview)
-        newListItem.appendChild(newListMetric)
-        // Add content to the screen!
-        moviesList.append(newListItem)
-    })
+        const topMovieVote = document.createElement("p");
+        topMovieVote.textContent = `Average Users Rate: ${topAvg[i].vote_average}`;
 
-    
+        liEl.appendChild(imgEl)
+        liEl.appendChild(topMovieTitle)
+        liEl.appendChild(topMovieVote);
+
+        moviesList.append(liEl)
+
+        if (i === topAvg.length) {
+            break;
+        }
+    }
 
 }
 
-// random movie button
-movieApp.randomMovie = () => {
-
-}
 
 // init 
 movieApp.general = () => {
