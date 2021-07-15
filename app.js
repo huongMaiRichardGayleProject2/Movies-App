@@ -64,7 +64,7 @@ movieApp.getUserInformation = () => {
         event.preventDefault();
         const userSelection = event.target[0].value;
         movieApp.fetchMovie(userSelection)
-        // movieApp.topMovies(userSelection)
+        
     })
 }
 
@@ -113,8 +113,37 @@ movieApp.topMovies = (movieArr) => {
             return b.vote_average-a.vote_average
         })
 
+        
+        // this is the list rating best to worst
+        console.log(topAvg)
+        // ===========================
+        const mainSection = document.getElementById('main-section')
+        const div = document.createElement('div')
+        div.classList.add('top-rated')
+        const hThree = document.createElement('h3')
+        hThree.textContent = 'top rated'
+        const ul = document.createElement('ul')
+        ul.setAttribute('id', 'top')
+        ul.classList.add('top-rated-ul')
+
+        div.appendChild(hThree)
+        div.appendChild(ul)
+        mainSection.innerHTML = ""
+        mainSection.prepend(div)
+
+        // div.append(mainSection)
+        // ===============================
+
+        console.log(mainSection)
+        console.log(hThree)
+
+        // div.innerHTML = ""
+
+
+
         const topRated = document.getElementById("top")
-        topRated.innerHTML = ""
+        // topRated.innerHTML = ""
+        // hThree.innerHTML = ""
 
         // Loop that grabs the first three movies of sorted array and displays them
         for(let i = 0; i < topAvg.length; i++) {
@@ -138,7 +167,10 @@ movieApp.topMovies = (movieArr) => {
                 break;
             }
         }
+        
 }
+
+
     
 // DISPLAY MOVIES
 // Using the same logic of Top Rated Section
@@ -167,6 +199,32 @@ movieApp.displayMovie = (movieArr) => {
     // Loop that grabs the first three movies of sorted array and displays them
     for(let i = 3; i < topAvg.length; i++) {
 
+
+// render the content to the page
+movieApp.displayMovie = (movies) => {
+    
+    // appending movie genre array onto page
+    // ===========================
+    const mainSection = document.getElementById('main-section')
+    // mainSection.innerHTML = ''
+    const div = document.createElement('div')
+    div.classList.add('other-movies')
+    const hThree = document.createElement('h3')
+    hThree.textContent = 'movies'
+    const ul = document.createElement('ul')
+    ul.setAttribute('id', 'movies')
+    
+
+    div.appendChild(hThree)
+    div.appendChild(ul)
+    mainSection.appendChild(div)
+    // ===============================
+    
+    
+    
+    const moviesList = document.getElementById("movies") 
+    moviesList.innerHTML = ""
+    // hThree.innerHTML = ""
         const liEl = document.createElement("li")
         
         const imgEl = document.createElement("img")
@@ -191,6 +249,7 @@ movieApp.displayMovie = (movieArr) => {
             break;
         }
     }
+
 }
 
 
