@@ -98,7 +98,6 @@ movieApp.fetchMovie = (genre) => {
 
 // need to find way to skip > 8 step and loop through and push top three voter avg in array
 // need to target voteravg directly and put whole object in new array
-
 movieApp.topMovies = (movieArr) => {
         // array to hold cloned movie list
         topAvg = [];
@@ -194,10 +193,6 @@ movieApp.displayMovie = (movieArr) => {
     }
 }
 
-// random movie button
-movieApp.randomMovie = () => {
-
-}
 
 // init 
 movieApp.general = () => {
