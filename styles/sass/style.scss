@@ -62,7 +62,7 @@ html {
 
 img {
     max-width: 100%;
-
+}
 
 form {
     border: 3px solid black;
@@ -72,7 +72,7 @@ form {
 }
 
 main {
-  background-color: white;
+    background-color: white;
 }
 
 ul {
@@ -100,9 +100,31 @@ ul {
     justify-content: space-between;
     flex-wrap: wrap;
 }
-.other-movies li {
+
+li {
     padding: 0 20px;
     text-align: center;
+    position: relative;
+    flex: 250px 1 0;
+}
+p {
+    margin: 0;
+    background: rgba(0,0,0,0.75);
+	color:white;
+    position: absolute;
+	right:0;
+	left:0;
+	top:-20px;
+	bottom:0;
+    // margin: 100px 50px;
+    opacity: 0; /*transparency*/
+	transition: all .2s; 
+    display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+p:hover {
+    opacity: 1;
 }
 // Header Section
 .header-container {
@@ -113,3 +135,4 @@ ul {
 footer {
     text-align: center;
 }
+

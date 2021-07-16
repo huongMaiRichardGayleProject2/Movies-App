@@ -158,8 +158,12 @@ movieApp.topMovies = (movieArr) => {
             const topMovieTitle = document.createElement("h4")
             topMovieTitle.textContent = topAvg[i].title
 
+            const topMovieVote = document.createElement("p");
+            topMovieVote.textContent = `Average Users Rate: ${topAvg[i].vote_average}`;
+
             liEl.appendChild(imgEl)
             liEl.appendChild(topMovieTitle)
+            liEl.appendChild(topMovieVote);
 
             topRated.append(liEl)
 
