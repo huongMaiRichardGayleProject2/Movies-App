@@ -11,7 +11,10 @@
 */
 
 
-// First creating our namspace for the application
+// Hey David! when we were testing responsive design mode we were having an issue with the web page scaling to the size of the device everything seemed to shrink extremely small.  We looked into it with Paul and there didn’t seem to be anything wrong with the code itself so we are a bit stumped on what happened.
+
+
+// First creating our namespace for the application
 const movieApp= {}
 // holding our content in memory
 movieApp.baseUrl = "https://api.themoviedb.org/3"
