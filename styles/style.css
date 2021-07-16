@@ -328,6 +328,8 @@ input:hover {
   background-color: #3C1874;
   cursor: pointer;
   color: white;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 input, main {
