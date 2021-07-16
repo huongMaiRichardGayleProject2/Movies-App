@@ -93,14 +93,6 @@ movieApp.fetchMovie = (genre) => {
 // TOP RATED 
 // create a section of three movies that will appear above the movie list that are the top rated of that genre
 
-// access genre array and target voter average. sort from high to low for top 3 with search param of vote_average which is number
-
-// if number a is larger than b keep if not put in num b
-// run math .max on array 
-// then have it check array again and run max second and third time
-
-// need to find way to skip > 8 step and loop through and push top three voter avg in array
-// need to target voteravg directly and put whole object in new array
 movieApp.topMovies = (movieArr) => {
         // array to hold cloned movie list
         topAvg = [];
