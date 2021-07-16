@@ -126,16 +126,6 @@ movieApp.topMovies = (movieArr) => {
         mainSection.innerHTML = ""
         mainSection.prepend(div)
 
-        // div.append(mainSection)
-        // ===============================
-
-        console.log(mainSection)
-        console.log(hThree)
-
-        // div.innerHTML = ""
-
-
-
         const topRated = document.getElementById("top")
         // topRated.innerHTML = ""
         // hThree.innerHTML = ""
@@ -184,14 +174,13 @@ movieApp.displayMovie = (movieArr) => {
     
     // Sorting new array by highest to lowest voter average
     topAvg.sort(function(a, b) {
-        // console.log(mov.vote_average)
         return b.vote_average-a.vote_average
     })
         
     // appending movie genre array onto page
-    // ===========================
+    
     const mainSection = document.getElementById('main-section')
-    // mainSection.innerHTML = ''
+
     const div = document.createElement('div')
     div.classList.add('other-movies')
     const hThree = document.createElement('h3')
@@ -202,13 +191,12 @@ movieApp.displayMovie = (movieArr) => {
     div.appendChild(hThree)
     div.appendChild(ul)
     mainSection.appendChild(div)
-    // ===============================
     
     
     
     const moviesList = document.getElementById("movies") 
     moviesList.innerHTML = ""
-    // hThree.innerHTML = ""
+    
     for(let i = 3; i < topAvg.length; i++) {
         const liEl = document.createElement("li")
         
