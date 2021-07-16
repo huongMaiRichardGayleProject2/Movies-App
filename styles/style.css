@@ -235,37 +235,46 @@ html {
   overflow: hidden;
 }
 
+html {
+  font-family: "Barlow", sans-serif;
+  background-color: #E1ECF7;
+  font-size: 125%;
+}
+
 .wrapper {
   max-width: 1200px;
   width: 95%;
   margin: 0 auto;
 }
 
-h1 {
+h1, h2 {
   font-family: "Press Start 2P", cursive;
-  color: #DE354C;
   text-align: center;
+}
+
+h1 {
+  color: #DE354C;
+  font-size: 3rem;
 }
 
 h2 {
-  font-family: "Press Start 2P", cursive;
   color: #3C1874;
-  text-align: center;
+  font-size: 2rem;
 }
 
 h3 {
-  font-size: 70px;
+  font-size: 3.5rem;
   text-align: center;
   text-transform: uppercase;
   padding-top: 55px;
 }
 
 h4 {
-  font-size: 20px;
+  font-size: 1.3rem;
 }
 
 p {
-  font-size: 20px;
+  font-size: 1rem;
   text-align: center;
 }
 
@@ -277,38 +286,65 @@ li {
   font-weight: 700;
 }
 
-html {
-  font-family: "Barlow", sans-serif;
-  background-color: #E1ECF7;
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-img {
-  max-width: 100%;
+.header-container {
+  margin: 70px 0;
 }
 
 form {
-  border: 3px solid black;
+  border: 3px solid #3C1874;
   border-radius: 15px;
   text-align: center;
   padding: 30px 0;
 }
 
-main {
+select, input {
+  border: 3px solid #3C1874;
+  border-radius: 5px;
+}
+
+select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 45%;
+  height: 30px;
+  background-image: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png);
+  background-repeat: no-repeat;
+  background-position: 95% center;
+  text-align: center;
+}
+
+input {
+  padding: 10px 20px;
+}
+
+input:hover {
+  background-color: #3C1874;
+  cursor: pointer;
+  color: white;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+input, main {
   background-color: white;
 }
 
-ul {
-  list-style: none;
-}
-
 .top-rated-ul {
-  padding: 0;
-  margin: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
 .top-rated-ul li {
@@ -318,29 +354,23 @@ ul {
   text-align: center;
 }
 
-.other-movies ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+.top-rated li {
+  width: calc((100%/4) - 60px);
+  margin: 15px 30px;
+  min-width: 190px;
+  text-align: center;
 }
 
-li {
-  padding: 0 20px;
-  text-align: center;
+.top-rated div {
   position: relative;
   -webkit-box-flex: 250px;
       -ms-flex: 250px 1 0px;
           flex: 250px 1 0;
 }
 
-p {
+.top-rated p {
   margin: 0;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, 0.986);
   color: white;
   position: absolute;
   right: 0;
@@ -363,14 +393,81 @@ p {
           justify-content: center;
 }
 
-p:hover {
+.top-rated p:hover {
   opacity: 1;
 }
 
-.header-container {
-  margin: 70px 0;
+.other-movies ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.other-movies li {
+  width: calc((100%/4) - 60px);
+  margin: 15px 30px;
+  min-width: 190px;
+  text-align: center;
+}
+
+.other-movies div {
+  position: relative;
+  -webkit-box-flex: 250px;
+      -ms-flex: 250px 1 0px;
+          flex: 250px 1 0;
+}
+
+.other-movies p {
+  margin: 0;
+  background: rgba(0, 0, 0, 0.986);
+  color: white;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: -20px;
+  bottom: 0;
+  opacity: 0;
+  /*transparency*/
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.other-movies p:hover {
+  opacity: 1;
 }
 
 footer {
   text-align: center;
+  margin-top: 30px;
+}
+
+footer p {
+  font-size: 1rem;
+}
+
+@media (max-width: 540px) {
+  .top-rated-ul, .other-movies ul {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+
+  .top-rated-ul li, .other-movies li {
+    width: 100%;
+  }
 }

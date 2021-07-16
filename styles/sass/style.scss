@@ -4,46 +4,46 @@
 
 // General
 
-.wrapper {
-        max-width: 1200px;
-        width: 95%; 
-        margin: 0 auto;
-    }
+html {
+    font-family: $bodyFont;
+    background-color: $Cloud;
+    font-size: 125%;
+}
 
-h1 {
+.wrapper {
+    max-width: 1200px;
+    width: 95%; 
+    margin: 0 auto;
+}
+
+h1, h2 {
     font-family: $headerFont;
-    color: $BrightRed;
     text-align:center;
 }
 
+h1 {
+    color: $BrightRed;  
+    font-size: 3rem;
+}
+
 h2 {
-    font-family: $headerFont;
     color: $PurePurple;
-    text-align: center;
+    font-size: 2rem;
 }
 
 h3 {
-    font-size: 70px;
+    font-size: 3.5rem;
     text-align: center;
     text-transform: uppercase;
     padding-top: 55px;
 }
 
-// .no-show {
-//     opacity: 0;
-//     position: absolute;
-// }
-
-// .show {
-//     opacity: 1;
-// }
-
 h4 {
-    font-size: 20px;
+    font-size: 1.3rem;
 }
 
 p {
-    font-size: 20px;
+    font-size: 1rem;
     text-align: center;
 }
 
@@ -55,36 +55,58 @@ li {
     font-weight: 700;
 }
 
-html {
-    font-family: $bodyFont;
-    background-color: $Cloud;
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-img {
-    max-width: 100%;
+// Header Section
+.header-container {
+    margin: 70px 0;
 }
 
 form {
-    border: 3px solid black;
+    border: 3px solid $PurePurple;
     border-radius : 15px;
     text-align: center;
     padding: 30px 0;
 }
 
-main {
-    background-color: white;
+select, input {
+    border: 3px solid $PurePurple;
+    border-radius: 5px;
 }
 
-ul {
-    list-style: none;
+select {
+    appearance: none;
+    width: 45%;
+    height: 30px;
+    background-image: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png);
+    background-repeat: no-repeat;
+    background-position: 95% center;
+    text-align: center;
+}
+
+input {
+    padding: 10px 20px;
+}
+
+input:hover {
+    background-color: $PurePurple;
+    cursor: pointer;
+    color: white;
+    transition: 0.3s;
+}
+
+input, main {
+    background-color: white
 }
 
 .top-rated-ul{
-    padding: 0;
-    margin: 0;
-    // border: 1px solid red;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 .top-rated-ul li {
@@ -93,6 +115,35 @@ ul {
     min-width: 190px;
     text-align: center;
 }
+
+.top-rated li {
+    width: calc((100%/4) - 60px);
+    margin: 15px 30px;
+    min-width: 190px;
+    text-align: center;
+}
+.top-rated div {
+    position: relative;
+    flex: 250px 1 0;
+}
+.top-rated p {
+    margin: 0;
+    background: rgba(0, 0, 0, 0.986);
+	color: white;
+    position: absolute;
+	right:0;
+	left:0;
+	top:-20px;
+	bottom:0;
+    opacity: 0; /*transparency*/
+	transition: all .2s; 
+    display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.top-rated p:hover {
+    opacity: 1;
+}
 // Other Movies Section
 
 .other-movies ul{
@@ -100,39 +151,54 @@ ul {
     justify-content: space-between;
     flex-wrap: wrap;
 }
-
-li {
-    padding: 0 20px;
+.other-movies li {
+    width: calc((100%/4) - 60px);
+    margin: 15px 30px;
+    min-width: 190px;
     text-align: center;
+}
+.other-movies div {
     position: relative;
     flex: 250px 1 0;
 }
-p {
+.other-movies p {
     margin: 0;
-    background: rgba(0,0,0,0.75);
+    background: rgba(0, 0, 0, 0.986);
 	color:white;
     position: absolute;
 	right:0;
 	left:0;
 	top:-20px;
 	bottom:0;
-    // margin: 100px 50px;
     opacity: 0; /*transparency*/
 	transition: all .2s; 
     display: flex;
 	flex-direction: column;
 	justify-content: center;
 }
-p:hover {
+.other-movies p:hover {
     opacity: 1;
 }
-// Header Section
-.header-container {
-    margin: 70px 0;
-}
-// Footer Section
+
+// Footer Section 
 
 footer {
     text-align: center;
+    margin-top: 30px;
 }
 
+footer p {
+    font-size: 1rem;
+}
+
+// media 
+
+@media (max-width: 540px) {
+    .top-rated-ul, .other-movies ul {
+        justify-content: center;
+    }
+
+    .top-rated-ul li, .other-movies li {
+        width: 100%;
+    }
+}
