@@ -342,6 +342,9 @@ input, main {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
 .top-rated-ul li {
@@ -349,6 +352,49 @@ input, main {
   margin: 0px 30px;
   min-width: 190px;
   text-align: center;
+}
+
+.top-rated li {
+  width: calc((100%/4) - 60px);
+  margin: 15px 30px;
+  min-width: 190px;
+  text-align: center;
+}
+
+.top-rated div {
+  position: relative;
+  -webkit-box-flex: 250px;
+      -ms-flex: 250px 1 0px;
+          flex: 250px 1 0;
+}
+
+.top-rated p {
+  margin: 0;
+  background: rgba(0, 0, 0, 0.986);
+  color: white;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: -20px;
+  bottom: 0;
+  opacity: 0;
+  /*transparency*/
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.top-rated p:hover {
+  opacity: 1;
 }
 
 .other-movies ul {
@@ -367,6 +413,42 @@ input, main {
   margin: 15px 30px;
   min-width: 190px;
   text-align: center;
+}
+
+.other-movies div {
+  position: relative;
+  -webkit-box-flex: 250px;
+      -ms-flex: 250px 1 0px;
+          flex: 250px 1 0;
+}
+
+.other-movies p {
+  margin: 0;
+  background: rgba(0, 0, 0, 0.986);
+  color: white;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: -20px;
+  bottom: 0;
+  opacity: 0;
+  /*transparency*/
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.other-movies p:hover {
+  opacity: 1;
 }
 
 footer {

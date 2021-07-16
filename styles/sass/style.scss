@@ -106,6 +106,7 @@ input, main {
 .top-rated-ul{
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 .top-rated-ul li {
@@ -115,6 +116,34 @@ input, main {
     text-align: center;
 }
 
+.top-rated li {
+    width: calc((100%/4) - 60px);
+    margin: 15px 30px;
+    min-width: 190px;
+    text-align: center;
+}
+.top-rated div {
+    position: relative;
+    flex: 250px 1 0;
+}
+.top-rated p {
+    margin: 0;
+    background: rgba(0, 0, 0, 0.986);
+	color: white;
+    position: absolute;
+	right:0;
+	left:0;
+	top:-20px;
+	bottom:0;
+    opacity: 0; /*transparency*/
+	transition: all .2s; 
+    display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.top-rated p:hover {
+    opacity: 1;
+}
 // Other Movies Section
 
 .other-movies ul{
@@ -127,6 +156,28 @@ input, main {
     margin: 15px 30px;
     min-width: 190px;
     text-align: center;
+}
+.other-movies div {
+    position: relative;
+    flex: 250px 1 0;
+}
+.other-movies p {
+    margin: 0;
+    background: rgba(0, 0, 0, 0.986);
+	color:white;
+    position: absolute;
+	right:0;
+	left:0;
+	top:-20px;
+	bottom:0;
+    opacity: 0; /*transparency*/
+	transition: all .2s; 
+    display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.other-movies p:hover {
+    opacity: 1;
 }
 
 // Footer Section 

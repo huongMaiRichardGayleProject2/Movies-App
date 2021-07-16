@@ -108,9 +108,6 @@ movieApp.topMovies = (movieArr) => {
             return b.vote_average-a.vote_average
         })
 
-        
-        // this is the list rating best to worst
-        console.log(topAvg)
         // ===========================
         const mainSection = document.getElementById('main-section')
         const div = document.createElement('div')
@@ -126,19 +123,7 @@ movieApp.topMovies = (movieArr) => {
         mainSection.innerHTML = ""
         mainSection.prepend(div)
 
-        // div.append(mainSection)
-        // ===============================
-
-        console.log(mainSection)
-        console.log(hThree)
-
-        // div.innerHTML = ""
-
-
-
         const topRated = document.getElementById("top")
-        // topRated.innerHTML = ""
-        // hThree.innerHTML = ""
 
         // Loop that grabs the first three movies of sorted array and displays them
         for(let i = 0; i < topAvg.length; i++) {
@@ -150,13 +135,20 @@ movieApp.topMovies = (movieArr) => {
             imgEl.setAttribute("src", topMovieImage)
             imgEl.setAttribute("alt", `This is a poster for the movie: ${topAvg[i].title}`)
 
+            const topMovieInfo = document.createElement("div")
             const topMovieTitle = document.createElement("h4")
             topMovieTitle.textContent = topAvg[i].title
 
-            liEl.appendChild(imgEl)
-            liEl.appendChild(topMovieTitle)
+            const topMovieVote = document.createElement("p");
+            topMovieVote.textContent = `Average Users Rate: ${topAvg[i].vote_average}`;
 
-            topRated.append(liEl)
+            liEl.appendChild(imgEl);
+            topMovieInfo.appendChild(topMovieTitle);
+            topMovieInfo.appendChild(topMovieVote);
+            liEl.appendChild(topMovieInfo);
+
+            topRated.append(liEl);
+            // topRated.append(topMovieInfo);
 
             if (i === 2) {
                 break;
@@ -184,14 +176,12 @@ movieApp.displayMovie = (movieArr) => {
     
     // Sorting new array by highest to lowest voter average
     topAvg.sort(function(a, b) {
-        // console.log(mov.vote_average)
         return b.vote_average-a.vote_average
     })
-        
+
     // appending movie genre array onto page
     // ===========================
     const mainSection = document.getElementById('main-section')
-    // mainSection.innerHTML = ''
     const div = document.createElement('div')
     div.classList.add('other-movies')
     const hThree = document.createElement('h3')
@@ -206,27 +196,27 @@ movieApp.displayMovie = (movieArr) => {
     
     
     
-    const moviesList = document.getElementById("movies") 
-    moviesList.innerHTML = ""
-    // hThree.innerHTML = ""
+    const moviesList = document.getElementById("movies");
+    moviesList.innerHTML = "";
     for(let i = 3; i < topAvg.length; i++) {
         const liEl = document.createElement("li")
         
         const imgEl = document.createElement("img")
-
         const topMovieImage = `https://www.themoviedb.org/t/p/w220_and_h330_face/${topAvg[i].poster_path}`
         imgEl.setAttribute("src", topMovieImage)
         imgEl.setAttribute("alt", `This is a poster for the movie: ${topAvg[i].title}`)
 
+        const topMovieInfo = document.createElement("div")
         const topMovieTitle = document.createElement("h4")
         topMovieTitle.textContent = topAvg[i].title
 
         const topMovieVote = document.createElement("p");
         topMovieVote.textContent = `Average Users Rate: ${topAvg[i].vote_average}`;
 
-        liEl.appendChild(imgEl)
-        liEl.appendChild(topMovieTitle)
-        liEl.appendChild(topMovieVote);
+        liEl.appendChild(imgEl);
+        topMovieInfo.appendChild(topMovieTitle);
+        topMovieInfo.appendChild(topMovieVote);
+        liEl.appendChild(topMovieInfo);
 
         moviesList.append(liEl)
 
